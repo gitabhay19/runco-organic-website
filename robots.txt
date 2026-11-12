@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://runcogrowth.com/sitemap.xml
