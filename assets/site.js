@@ -25,7 +25,7 @@
      ------------------------------------------------------------------ */
   var SPOTS = { month: "2026-11", total: 4, taken: 2 };
 
-  var DEFAULT_MSG = "Hi Abhay, I'd like my 3 free videos. My business is: ";
+  var DEFAULT_MSG = "Hi Abhay, I'd like to claim my three free videos. My business is: ";
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function $(sel, root) { return (root || document).querySelector(sel); }
@@ -47,7 +47,7 @@
     if (CONTACT.whatsapp) return "https://wa.me/" + CONTACT.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent(msg);
     if (CONTACT.instagram) return "https://ig.me/m/" + CONTACT.instagram.replace(/^@/, "");
     if (CONTACT.x) return "https://x.com/" + CONTACT.x.replace(/^@/, "");
-    return "mailto:" + CONTACT.email + "?subject=" + encodeURIComponent(subject || "3 free videos") + "&body=" + encodeURIComponent(msg);
+    return "mailto:" + CONTACT.email + "?subject=" + encodeURIComponent(subject || "Three free videos") + "&body=" + encodeURIComponent(msg);
   }
   function isWeb(url) { return url.indexOf("http") === 0; }
   function wireContact() {
@@ -259,7 +259,7 @@
       var gapNames = r.gaps.map(function (g) { return g.key.toLowerCase(); });
       var summary = "My Authority Score is " + r.score + "/100 (" + r.tier.name + ")." +
         (gapNames.length ? " Biggest gaps: " + gapNames.join(", ") + "." : "");
-      var msg = "Hi Abhay, " + summary.charAt(0).toLowerCase() + summary.slice(1) + " I'd like my 3 free videos. My business is: ";
+      var msg = "Hi Abhay, " + summary.charAt(0).toLowerCase() + summary.slice(1) + " I'd like to claim my three free videos. My business is: ";
 
       root.textContent = "";
       var num = el("p", { class: "result-num" }, [String(r.score), el("small", { text: " /100" })]);
@@ -279,12 +279,12 @@
       }
 
       var url = contactLink(msg, "My Authority Score: " + r.score + "/100");
-      var send = el("a", { class: "btn", id: "quiz-send", href: url, text: "Send my score and get 3 free videos" });
+      var send = el("a", { class: "btn", id: "quiz-send", href: url, text: "Send my score and claim my three free videos" });
       if (isWeb(url)) { send.target = "_blank"; send.rel = "noopener"; }
       var copy = el("button", { class: "btn btn-quiet", type: "button", id: "quiz-copy", text: "Copy my result" });
       copy.addEventListener("click", function () { copyText(summary, copy, "Copy my result"); });
       root.appendChild(el("div", { class: "cta-row" }, [send, copy]));
-      root.appendChild(el("p", { class: "small muted", text: "I'll plan your three free videos around these gaps. You can also reach me at " + CONTACT.email + "." }));
+      root.appendChild(el("p", { class: "small muted", text: "I'll plan your first videos around these gaps. You can also reach me at " + CONTACT.email + "." }));
       var again = el("button", { class: "quiz-back", type: "button", id: "quiz-again", text: "Take it again" });
       again.addEventListener("click", function () { answers = []; step = 0; renderQuestion(); focusFirst(); });
       root.appendChild(again);
@@ -309,7 +309,7 @@
     var root = $("#plan"); if (!root) return;
     var ids = ["topic", "audience", "result", "q1", "q2", "q3"], inputs = {};
     ids.forEach(function (k) { inputs[k] = $("#plan-" + k); });
-    var defaults = { topic: "commercial property", audience: "first-time investors", result: "a first profitable deal" };
+    var defaults = { topic: "B2B software", audience: "operations leaders", result: "fewer manual hours" };
     var rows = $all("[data-template]", root), err = $("#plan-error"), go = $("#plan-go"), copy = $("#plan-copy");
     function val(k) { return (inputs[k].value || "").trim(); }
     function values() { var v = {}; Object.keys(defaults).forEach(function (k) { v[k] = val(k) || defaults[k]; }); return v; }
@@ -337,7 +337,7 @@
       var lines = ["Hi Abhay, here's my 30-day video plan from your site.", "Field: " + (val("topic") || "-"), "I help: " + (val("audience") || "-"), "They want: " + (val("result") || "-")];
       var qs = ["q1", "q2", "q3"].map(val).filter(Boolean);
       if (qs.length) lines.push("Questions they ask: " + qs.join(" / "));
-      lines.push("", "Please script and edit my first three for free.");
+      lines.push("", "I'd like to claim my three free videos.");
       return lines.join("\n");
     }
     window.RuncoPlan = { message: message, text: planText }; /* exposed for testing */

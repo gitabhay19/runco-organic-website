@@ -6,9 +6,9 @@ Static site: no build step, no database, no framework. Upload the files and it r
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Homepage: headline, four client videos, client feedback, the 30-Day Authority Sprint offer, contact, FAQs |
-| `authority-score.html` | Lead magnet: eight-question quiz that scores a founder's online presence |
-| `30-day-video-plan.html` | Lead magnet: visitors enter who they help and get a 12-video, four-week plan, then send it to your WhatsApp |
+| `index.html` | Homepage: headline, three client videos, two client messages, the 30-Day Authority Sprint offer with both guarantees, contact, five FAQs |
+| `authority-score.html` | Tool for cold DMs, not linked from the homepage: eight-question quiz that scores a founder's online presence |
+| `30-day-video-plan.html` | Tool for cold DMs, not linked from the homepage: visitors enter who they help, get a 12-video plan, then send it to your WhatsApp |
 | `assets/styles.css`, `assets/site.js` | Design and behaviour for all pages |
 | `assets/*.woff2` | Fonts, self-hosted for speed (Bricolage Grotesque, Instrument Serif and Geist, SIL Open Font License) |
 | `assets/og.jpg` | Preview image shown when the link is shared on WhatsApp, X, LinkedIn |
@@ -29,7 +29,7 @@ var CONTACT = {
 };
 ```
 
-Every button reads from this. The main button opens WhatsApp with a pre-written message ("Hi Abhay, I'd like my 3 free videos...") and the quiz sends the visitor's score the same way. To change a handle, edit it here and in the matching `wa.me` links and `sameAs` lines in the three `.html` files (search for the old value).
+Every button reads from this. The main button opens WhatsApp with a pre-written message ("Hi Abhay, I'd like to claim my three free videos...") and the quiz sends the visitor's score the same way. To change a handle, edit it here and in the matching `wa.me` links and `sameAs` lines in the three `.html` files (search for the old value).
 
 ## Places this month
 
@@ -63,9 +63,9 @@ To change a name or caption, edit the matching `<button class="reel">` block in 
 
 The small photo under each video is `name-avatar.webp` (160 x 160).
 
-## The feedback strip
+## Client messages
 
-The scrolling strip under the videos uses the screenshots named `feedback-*.webp` in `media/`. Each one appears twice in `index.html` (the strip repeats itself to loop), so add or remove a screenshot in both lists. Labels say only "Client, on WhatsApp" or "Instagram comment"; add a client's name to a label once they've agreed to be quoted.
+The two screenshots in the "Don't take my word for it" section are `media/feedback-whatsapp-1.webp` and `feedback-whatsapp-2.webp`. Their labels say "Client, on WhatsApp". To name the client once they agree, edit the label in `index.html`.
 
 ## Upload
 
@@ -84,7 +84,7 @@ The scrolling strip under the videos uses the screenshots named `feedback-*.webp
 ## What's already done for search
 
 - One clear topic per page, descriptive titles and meta descriptions, a single H1, real headings
-- Structured data: Organization, Person, WebSite, Offer, four VideoObjects and FAQPage on the homepage; WebPage and BreadcrumbList on the tool pages
+- Structured data: Organization, Person, WebSite, Offer, three VideoObjects and FAQPage on the homepage; WebPage and BreadcrumbList on the tool pages
 - Canonical URLs, sitemap, robots.txt, social share tags
 - Fast first load: pages, fonts and images come to under 300 KB. Video previews load only when they scroll into view, and full videos only when tapped
 - Built for phones first: swipeable videos, tap-sized buttons, and an action bar that appears once the first button scrolls away
@@ -96,5 +96,4 @@ On-page work gets you indexed and ranking for your own name. Ranking for competi
 1. **Ask Mark, Cody and Gage for a link** to runcogrowth.com from their site or bio. Links from real client sites are the strongest signal you can get this month.
 3. **Publish one new page a week** that answers a question founders search for, for example "how often should a CEO post on LinkedIn". Each page links back to the offer. Add each new URL to `sitemap.xml`.
 4. **Write one case-study page per client** with the video, what you did and what changed.
-5. **When you have finance proof**, add a dedicated page such as `/video-content-for-financial-advisors.html` instead of rewriting the homepage.
-6. **Upload the videos to YouTube too** and link back to the site in each description.
+5. **Upload the videos to YouTube too** and link back to the site in each description.
